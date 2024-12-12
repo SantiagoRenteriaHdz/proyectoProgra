@@ -28,18 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            buttonSalir = new Button();
             SuspendLayout();
+            // 
+            // buttonSalir
+            // 
+            buttonSalir.Location = new Point(713, 415);
+            buttonSalir.Name = "buttonSalir";
+            buttonSalir.Size = new Size(75, 23);
+            buttonSalir.TabIndex = 0;
+            buttonSalir.Text = "Salir";
+            buttonSalir.UseVisualStyleBackColor = true;
+            buttonSalir.Click += buttonSalir_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(buttonSalir);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button buttonSalir;
     }
 }

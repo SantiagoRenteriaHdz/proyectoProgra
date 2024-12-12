@@ -51,6 +51,11 @@ namespace ProyectoFinal
                 this.Controls.Add(panel);
             }
         }
+
+        private void buttonSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 

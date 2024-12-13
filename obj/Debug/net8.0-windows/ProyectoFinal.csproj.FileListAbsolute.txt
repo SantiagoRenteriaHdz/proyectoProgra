@@ -33,3 +33,5 @@ C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\P
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.pdb
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.genruntimeconfig.cache
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\obj\Debug\net8.0-windows\ref\ProyectoFinal.dll
+C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.InicioSesion.resources
+C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.FormPortada.resources

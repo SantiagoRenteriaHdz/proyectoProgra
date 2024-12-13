@@ -1,14 +1,14 @@
 ﻿namespace ProyectoFinal
 {
-    partial class Form1
+    partial class InicioSesion
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,39 +23,27 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            buttonSalir = new Button();
             SuspendLayout();
             // 
-            // buttonSalir
-            // 
-            buttonSalir.Location = new Point(713, 415);
-            buttonSalir.Name = "buttonSalir";
-            buttonSalir.Size = new Size(75, 23);
-            buttonSalir.TabIndex = 0;
-            buttonSalir.Text = "Salir";
-            buttonSalir.UseVisualStyleBackColor = true;
-            buttonSalir.Click += buttonSalir_Click;
-            // 
-            // Form1
+            // InicioSesion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.InicioSesion;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
-            Controls.Add(buttonSalir);
-            Name = "Form1";
+            Name = "InicioSesion";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "InicioSesion";
             WindowState = FormWindowState.Maximized;
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Button buttonSalir;
     }
 }

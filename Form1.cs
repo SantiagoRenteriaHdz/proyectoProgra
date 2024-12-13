@@ -19,16 +19,16 @@ namespace ProyectoFinal
                 // Crear un nuevo panel
                 Panel panel = new Panel
                 {
-                    Size = new Size(150, 150),
-                    Location = new Point(50 + (i * 160), 50), // Espaciado horizontal
+                    Size = new Size(300, 300),
+                    Location = new Point(50 + (i * 320), 50), // Espaciado horizontal
                     BackColor = Color.FromArgb(50 * i, 100, 150) // Colores distintos
                 };
 
                 // Crear y agregar una PictureBox dentro del panel
                 PictureBox pictureBox = new PictureBox
                 {
-                    Size = new Size(100, 70),
-                    Location = new Point(25, 10),
+                    Size = new Size(200, 140),
+                    Location = new Point(50, 20),
                     BackColor = Color.White,
                     BorderStyle = BorderStyle.FixedSingle,
                     Image = Properties.Resources.has2,// aqui va la imagen que viene de la base de datos // Usa una imagen del proyecto o pon null
@@ -40,8 +40,8 @@ namespace ProyectoFinal
                 Button button = new Button
                 {
                     Text = $"Botón {i + 1}",
-                    Size = new Size(100, 30),
-                    Location = new Point(25, 90)
+                    Size = new Size(200, 60),
+                    Location = new Point(50, 180)
                 };
                 button.Click += (sender, e) => MessageBox.Show($"¡Hiciste clic en el botón {i + 1}!");
                 panel.Controls.Add(button);

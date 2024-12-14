@@ -35,3 +35,23 @@ C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\P
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\obj\Debug\net8.0-windows\ref\ProyectoFinal.dll
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.InicioSesion.resources
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.FormPortada.resources
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.FormPortada.resources
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.InicioSesion.resources
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.csproj.GenerateResource.cache
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.dll
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\obj\Debug\net8.0-windows\refint\ProyectoFinal.dll
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.pdb
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.Properties.Resources.resources
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.AssemblyInfoInputs.cache
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.AssemblyInfo.cs
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.csproj.CoreCompileInputs.cache
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.sourcelink.json
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\bin\Debug\net8.0-windows\ProyectoFinal.exe
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\bin\Debug\net8.0-windows\ProyectoFinal.deps.json
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\bin\Debug\net8.0-windows\ProyectoFinal.runtimeconfig.json
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\bin\Debug\net8.0-windows\ProyectoFinal.dll
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\bin\Debug\net8.0-windows\ProyectoFinal.pdb
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.genruntimeconfig.cache
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\obj\Debug\net8.0-windows\ref\ProyectoFinal.dll
+C:\Users\raspu\OneDrive\Escritorio\Proyecto Progra\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.FormTienda.resources

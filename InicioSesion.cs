@@ -16,5 +16,19 @@ namespace ProyectoFinal
         {
             InitializeComponent();
         }
+
+        private void buttonCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void buttonIngresar_Click(object sender, EventArgs e)
+        {
+            FormTienda abrir = new FormTienda();
+            this.Close();
+            abrir.ShowDialog();
+            this.Show();
+
+        }
     }
 }

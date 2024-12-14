@@ -73,9 +73,9 @@ namespace ProyectoFinal.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap InicioSesion {
+        internal static System.Drawing.Bitmap InicioDeSesion {
             get {
-                object obj = ResourceManager.GetObject("InicioSesion", resourceCulture);
+                object obj = ResourceManager.GetObject("InicioDeSesion", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,19 +83,9 @@ namespace ProyectoFinal.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Portada {
+        internal static System.Drawing.Bitmap portada5 {
             get {
-                object obj = ResourceManager.GetObject("Portada", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap portadachida {
-            get {
-                object obj = ResourceManager.GetObject("portadachida", resourceCulture);
+                object obj = ResourceManager.GetObject("portada5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

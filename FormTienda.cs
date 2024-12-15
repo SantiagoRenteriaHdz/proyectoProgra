@@ -2,9 +2,12 @@ namespace ProyectoFinal
 {
     public partial class FormTienda : Form
     {
-        private List<Panel> paneles;
-        public FormTienda()
+        List<Panel> paneles;
+        Usuarios infoUsuario;
+
+        public FormTienda(Usuarios datos)
         {
+            infoUsuario = datos;
             InitializeComponent();
             // Configuración del formulario
             this.Text = "Paneles con Controles";

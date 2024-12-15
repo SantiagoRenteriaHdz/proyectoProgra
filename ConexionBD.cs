@@ -86,14 +86,14 @@ public class ConexionBD
 
         try
         {
-            string query = "SELECT * FROM usuarios where cuenta=" + account + ";";
+            string query = "SELECT * FROM usuarios where cuenta='" + account + "';";
             MySqlCommand command = new MySqlCommand(query, conexion);
 
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 id = Convert.ToInt32(reader["id"]);
-                nombre = Convert.ToString(reader["nombre"]) ?? "";
+                nombre = Convert.ToString(reader["nombre completo"]) ?? "";
                 contrasena = Convert.ToString(reader["contraseña"]) ?? "";
                 monto = Convert.ToInt32(reader["monto"]);
 

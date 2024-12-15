@@ -63,6 +63,36 @@ namespace ProyectoFinal.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap agregarproducto {
+            get {
+                object obj = ResourceManager.GetObject("agregarproducto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cerrarsesion {
+            get {
+                object obj = ResourceManager.GetObject("cerrarsesion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eliminarproducto {
+            get {
+                object obj = ResourceManager.GetObject("eliminarproducto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap has2 {
             get {
                 object obj = ResourceManager.GetObject("has2", resourceCulture);
@@ -106,6 +136,26 @@ namespace ProyectoFinal.Properties {
         internal static System.Drawing.Bitmap portada5 {
             get {
                 object obj = ResourceManager.GetObject("portada5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ventas {
+            get {
+                object obj = ResourceManager.GetObject("ventas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap verproducto {
+            get {
+                object obj = ResourceManager.GetObject("verproducto", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

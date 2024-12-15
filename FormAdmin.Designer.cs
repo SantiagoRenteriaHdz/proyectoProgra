@@ -28,12 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            buttonSalir = new Button();
+            SuspendLayout();
+            // 
+            // buttonSalir
+            // 
+            buttonSalir.BackColor = Color.Transparent;
+            buttonSalir.BackgroundImage = Properties.Resources.cerrarsesion;
+            buttonSalir.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonSalir.Cursor = Cursors.Hand;
+            buttonSalir.FlatAppearance.BorderSize = 0;
+            buttonSalir.FlatStyle = FlatStyle.Flat;
+            buttonSalir.Location = new Point(752, 404);
+            buttonSalir.Name = "buttonSalir";
+            buttonSalir.Size = new Size(36, 34);
+            buttonSalir.TabIndex = 1;
+            buttonSalir.UseVisualStyleBackColor = false;
+            buttonSalir.Click += buttonSalir_Click;
+            // 
+            // FormAdmin
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(800, 450);
+            Controls.Add(buttonSalir);
+            Name = "FormAdmin";
+            Text = "Form1";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button buttonSalir;
     }
 }

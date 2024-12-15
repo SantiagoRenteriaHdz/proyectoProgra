@@ -40,6 +40,9 @@ namespace ProyectoFinal
                     FormAdmin admin = new FormAdmin();
                     this.Hide();
                     admin.ShowDialog();
+                    textBoxCuenta.Text = "";
+                    textBoxContraseña.Text = "";
+                    ingresar.desconectar();
                     this.Show();
                 }
                 else
@@ -48,6 +51,9 @@ namespace ProyectoFinal
                     FormTienda usuario = new FormTienda(ingresar.datosCuenta(cuenta));
                     this.Hide();
                     usuario.ShowDialog();
+                    textBoxCuenta.Text = "";
+                    textBoxContraseña.Text = "";
+                    ingresar.desconectar();
                     this.Show();
                 }
             }

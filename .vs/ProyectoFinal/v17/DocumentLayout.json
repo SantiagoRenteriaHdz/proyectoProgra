@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|c:\\users\\aorus\\onedrive - universidad aut\u00F3noma de aguascalientes\\3er semestre\\programacion ii\\proyectofinal\\proyectoprogra\\iniciosesion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|solutionrelative:iniciosesion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|c:\\users\\aorus\\onedrive - universidad aut\u00F3noma de aguascalientes\\3er semestre\\programacion ii\\proyectofinal\\proyectoprogra\\formadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|solutionrelative:formadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|c:\\users\\aorus\\onedrive - universidad aut\u00F3noma de aguascalientes\\3er semestre\\programacion ii\\proyectofinal\\proyectoprogra\\formadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|solutionrelative:formadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|c:\\users\\aorus\\onedrive - universidad aut\u00F3noma de aguascalientes\\3er semestre\\programacion ii\\proyectofinal\\proyectoprogra\\conexionbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|solutionrelative:conexionbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|c:\\users\\aorus\\onedrive - universidad aut\u00F3noma de aguascalientes\\3er semestre\\programacion ii\\proyectofinal\\proyectoprogra\\formtienda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|solutionrelative:formtienda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,41 +30,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormTienda.cs",
-              "DocumentMoniker": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\FormTienda.cs",
-              "RelativeDocumentMoniker": "FormTienda.cs",
-              "ToolTip": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\FormTienda.cs",
-              "RelativeToolTip": "FormTienda.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T03:36:40.527Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ConexionBD.cs",
-              "DocumentMoniker": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\ConexionBD.cs",
-              "RelativeDocumentMoniker": "ConexionBD.cs",
-              "ToolTip": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\ConexionBD.cs",
-              "RelativeToolTip": "ConexionBD.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwE0AAAAuAAAAAAAAAA==",
+              "Title": "FormAdmin.cs",
+              "DocumentMoniker": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\FormAdmin.cs",
+              "RelativeDocumentMoniker": "FormAdmin.cs",
+              "ToolTip": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\FormAdmin.cs",
+              "RelativeToolTip": "FormAdmin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T02:04:33.525Z",
+              "WhenOpened": "2024-12-15T06:02:00.92Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "InicioSesion.cs",
-              "DocumentMoniker": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\InicioSesion.cs",
-              "RelativeDocumentMoniker": "InicioSesion.cs",
-              "ToolTip": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\InicioSesion.cs",
-              "RelativeToolTip": "InicioSesion.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAWwC8AAABUAAAAAAAAAA==",
+              "Title": "FormAdmin.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\FormAdmin.cs",
+              "RelativeDocumentMoniker": "FormAdmin.cs",
+              "ToolTip": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\FormAdmin.cs [Dise\u00F1o]",
+              "RelativeToolTip": "FormAdmin.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T00:23:05.073Z",
+              "WhenOpened": "2024-12-15T05:55:16.978Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ConexionBD.cs",
+              "DocumentMoniker": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\ConexionBD.cs",
+              "RelativeDocumentMoniker": "ConexionBD.cs",
+              "ToolTip": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\ConexionBD.cs",
+              "RelativeToolTip": "ConexionBD.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAcwGQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T02:04:33.525Z",
               "EditorCaption": ""
             }
           ]

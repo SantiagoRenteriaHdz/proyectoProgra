@@ -33,27 +33,30 @@
             // 
             // buttonSalir
             // 
-            buttonSalir.Location = new Point(1324, 885);
-            buttonSalir.Margin = new Padding(6, 6, 6, 6);
+            buttonSalir.BackColor = Color.Transparent;
+            buttonSalir.BackgroundImage = Properties.Resources.cerrarsesion;
+            buttonSalir.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonSalir.Cursor = Cursors.Hand;
+            buttonSalir.FlatAppearance.BorderSize = 0;
+            buttonSalir.FlatStyle = FlatStyle.Flat;
+            buttonSalir.Location = new Point(752, 404);
             buttonSalir.Name = "buttonSalir";
-            buttonSalir.Size = new Size(139, 49);
+            buttonSalir.Size = new Size(36, 34);
             buttonSalir.TabIndex = 0;
-            buttonSalir.Text = "Salir";
-            buttonSalir.UseVisualStyleBackColor = true;
+            buttonSalir.UseVisualStyleBackColor = false;
             buttonSalir.Click += buttonSalir_Click;
             // 
             // FormTienda
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1486, 960);
+            ClientSize = new Size(800, 450);
             Controls.Add(buttonSalir);
-            Margin = new Padding(6, 6, 6, 6);
             Name = "FormTienda";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             WindowState = FormWindowState.Maximized;
-            Load += this.FormTienda_Load;
+            Load += FormTienda_Load;
             ResumeLayout(false);
         }
 

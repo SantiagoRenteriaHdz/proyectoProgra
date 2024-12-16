@@ -53,6 +53,8 @@ C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\P
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\MySql.Data.dll
+C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\OpenTK.dll
+C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\OpenTK.GLControl.dll
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\PdfSharp.Charting.dll
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\PdfSharp.Quality.dll
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\PdfSharp.Snippets.dll
@@ -60,8 +62,11 @@ C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\P
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\PdfSharp.WPFonts.dll
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\PdfSharp.dll
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\ScottPlot.dll
+C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\ScottPlot.WinForms.dll
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\SkiaSharp.dll
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\SkiaSharp.HarfBuzz.dll
+C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\SkiaSharp.Views.Desktop.Common.dll
+C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\SkiaSharp.Views.WindowsForms.dll
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\ZstdSharp.dll
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\de\PdfSharp.Charting.resources.dll
@@ -105,8 +110,3 @@ C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\P
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.pdb
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.genruntimeconfig.cache
 C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\obj\Debug\net8.0-windows\ref\ProyectoFinal.dll
-C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\OpenTK.dll
-C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\OpenTK.GLControl.dll
-C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\ScottPlot.WinForms.dll
-C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\SkiaSharp.Views.Desktop.Common.dll
-C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\bin\Debug\net8.0-windows\SkiaSharp.Views.WindowsForms.dll

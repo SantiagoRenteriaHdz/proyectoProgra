@@ -70,6 +70,9 @@
             // 
             // dateTimePicker1
             // 
+            dateTimePicker1.CalendarMonthBackground = Color.Transparent;
+            dateTimePicker1.CalendarTitleBackColor = Color.Transparent;
+            dateTimePicker1.CalendarTitleForeColor = SystemColors.ActiveBorder;
             dateTimePicker1.Enabled = false;
             dateTimePicker1.Location = new Point(423, 328);
             dateTimePicker1.Margin = new Padding(2, 1, 2, 1);
@@ -81,7 +84,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.portada5;
+            BackgroundImage = Properties.Resources.portada7;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
             Controls.Add(dateTimePicker1);

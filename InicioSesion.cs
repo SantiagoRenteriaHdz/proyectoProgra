@@ -38,6 +38,7 @@ namespace ProyectoFinal
                 if(ingresar.verificarAdmin(cuenta))
                 {
                     FormAdmin admin = new FormAdmin();
+                    MessageBox.Show("Bienvenido administrador!!", "Ingresando...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
                     admin.ShowDialog();
                     textBoxCuenta.Text = "";
@@ -49,6 +50,7 @@ namespace ProyectoFinal
                 {
 
                     FormTienda usuario = new FormTienda(ingresar.datosCuenta(cuenta));
+                    MessageBox.Show("Bienvenido a Urban Rodeo!!", "Ingresando...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
                     usuario.ShowDialog();
                     textBoxCuenta.Text = "";

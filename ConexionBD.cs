@@ -188,16 +188,48 @@ public class ConexionBD
         string query = "";
         try
         {
+            // Consulta para obtener los datos del registro antes de eliminarlo
+            query = "SELECT * FROM gorras WHERE id = " + eliminar + ";";
 
+            MySqlCommand cmdSelect = new MySqlCommand(query, conexion);
+            MySqlDataReader reader = cmdSelect.ExecuteReader();
+
+            if (reader.Read()) // Si encuentra un registro
+            {
+                // Obtener los datos del registro
+                string nombre = reader["nombre"].ToString();
+                string existencias = reader["existencias"].ToString();
+                string descripcion = reader["descripcion"].ToString();
+                string precio = reader["precio"].ToString();
+                string imagen = reader["imagen"].ToString();
+
+                // Mostrar todos los datos al usuario antes de eliminar
+                MessageBox.Show("Datos del registro a eliminar:\n" +
+                                "Nombre: " + nombre + "\n" +
+                                "Existencias: " + existencias + "\n" +
+                                "Descripción: " + descripcion + "\n" +
+                                "Precio: " + precio + "\n" +
+                                "Imagen: " + imagen);
+            }
+            else
+            {
+                MessageBox.Show("No se encontró el registro con id: " + eliminar);
+                return; // Si no se encuentra el registro, no procedemos a eliminar
+            }
+
+            reader.Close(); // Cerrar el reader después de usarlo
+
+            // Ahora, proceder a eliminar el registro
             query = "DELETE FROM gorras WHERE id=" + eliminar + ";";
+            MySqlCommand cmdDelete = new MySqlCommand(query, conexion);
+            cmdDelete.ExecuteNonQuery();
 
-            MySqlCommand cmd = new MySqlCommand(query, conexion);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show(query + "\nRegistro Eliminado");
+            // Confirmar que el registro ha sido eliminado
+            MessageBox.Show("Registro con ID " + eliminar + " eliminado correctamente.");
         }
         catch (Exception ex)
         {
-            MessageBox.Show(query + "\nError " + ex.Message);
+            MessageBox.Show("Error al eliminar el registro: " + ex.Message);
             this.desconectar();
         }
     }

@@ -33,6 +33,7 @@
             // 
             // buttonSalir
             // 
+            buttonSalir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             buttonSalir.BackColor = Color.Transparent;
             buttonSalir.BackgroundImage = Properties.Resources.cerrarsesion;
             buttonSalir.BackgroundImageLayout = ImageLayout.Stretch;
@@ -50,8 +51,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.tienda;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
             Controls.Add(buttonSalir);
+            DoubleBuffered = true;
             Name = "FormTienda";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";

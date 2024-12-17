@@ -15,6 +15,7 @@ namespace ProyectoFinal
         public FormPortada()
         {
             InitializeComponent();
+            labelFecha.Text = DateTime.Now.ToString("d");
         }
 
         private void FormPortada_Load(object sender, EventArgs e)

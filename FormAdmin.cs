@@ -15,11 +15,14 @@ namespace ProyectoFinal
     {
         List<Gorras> registros;
         private bool mostrarGrafica = false;
+        List<Usuarios> usuarios;
+        int montoTotal = 0;
         public FormAdmin()
         {
-
+            ConexionBD ventas = new ConexionBD();
+            montoTotal = ventas.ventasTotales();
             InitializeComponent();
-
+            labelVentas.Text = "Las ventas totales son: $" + montoTotal.ToString();
 
 
         }
@@ -191,5 +194,7 @@ namespace ProyectoFinal
             // Refrescar para mostrar la gráfica
             formsPlot1.Refresh();
         }
+
+
     }
 }

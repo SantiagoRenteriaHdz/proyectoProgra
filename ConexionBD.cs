@@ -234,28 +234,102 @@ public class ConexionBD
         }
     }
 
-
-    //actualizar datos de un registro
-    public void actualizar(int act, string nombre, int existencias,string descripcion, int precio, string imagen)
+    public int ventasTotales()
     {
-
+        
+        int montoTotal=0;
+        int monto;
+        
         try
         {
-            string query = "UPDATE gorras SET id=" + "'" + act + "'" + ",nombre=" + "'" + nombre + "'" + ",existencias=" + "'" + existencias + "'" + ",descripcion=" + "'" + descripcion + ",precio=" + "'" + precio + "'" + ",imagen=" + "'" + imagen + "'" + "where id=" + act + ";";
-            MessageBox.Show(query);
-            MySqlCommand cmd = new MySqlCommand(query, conexion);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show(query + "\nRegistro Actualizado");
+            string query = "SELECT * FROM usuarios;";
+            MySqlCommand command = new MySqlCommand(query, this.conexion);
+
+
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+
+                monto = Convert.ToInt32(reader["monto"]);
+                montoTotal += monto;
+                
+
+            }
+            reader.Close();
 
 
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Error en la actualizacion: " + ex.Message);
+            MessageBox.Show("Error al calcular las ventas totales: " + ex.Message);
             this.desconectar();
+        }
+        return montoTotal;
+    }
+
+    public void actualizarProducto(int id, string nombre, int nuevaExistencia, string descripcion,int precio, string imagen)
+    {
+        try
+        {
+            //  Obtener las existencias actuales
+            string querySelect = "SELECT existencias FROM gorras WHERE id = '" + id + "';";
+            MySqlCommand cmdSelect = new MySqlCommand(querySelect, conexion);
+
+            int existenciasActuales = 0;
+            using (MySqlDataReader reader = cmdSelect.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    existenciasActuales = reader.GetInt32("existencias");
+                }
+            }
+
+            // Restar una unidad de las existencias actuales
+            int nuevasExistencias = existenciasActuales - 1;
+
+            // Verificar si las existencias son mayores a cero antes de actualizar
+            if (nuevasExistencias >= 0)
+            {
+                //  Actualizar el producto con las nuevas existencias
+                string queryUpdate = "UPDATE gorras SET nombre = '" + nombre + "', descripcion = '" + descripcion + "', precio = '" + precio + "', imagen = '" + imagen + "', existencias = '" + nuevasExistencias + "' WHERE id = '" + id + "';";
+                MySqlCommand cmdUpdate = new MySqlCommand(queryUpdate, conexion);
+
+                // Ejecutar la actualización
+                cmdUpdate.ExecuteNonQuery();
+                
+            }
+            else
+            {
+                MessageBox.Show("No hay suficientes existencias para actualizar el producto.");
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error en la actualización: " + ex.Message);
         }
     }
 
+    public void actualizarMontoUsuario(int id, int nuevoMonto)
+    {
+        try
+        {
+            // Crear la consulta SQL para actualizar el monto del usuario
+            string query = "UPDATE usuarios SET monto = '" + nuevoMonto + "' WHERE id = '" + id + "';";
+
+            // Crear el comando SQL
+            MySqlCommand cmd = new MySqlCommand(query, conexion);
+
+            // Ejecutar el comando
+            cmd.ExecuteNonQuery();
+
+            
+        }
+        catch (Exception ex)
+        {
+            // En caso de error, mostrar el mensaje correspondiente
+            MessageBox.Show("Error al actualizar el monto: " + ex.Message);
+        }
+    }
 
 
 

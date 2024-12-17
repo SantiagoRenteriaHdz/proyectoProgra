@@ -185,3 +185,4 @@ C:\Users\sh240\Documents\terSem\Programacion2\proyectAzo\proyectoProgra\obj\Debu
 C:\Users\sh240\Documents\terSem\Programacion2\proyectAzo\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.pdb
 C:\Users\sh240\Documents\terSem\Programacion2\proyectAzo\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.genruntimeconfig.cache
 C:\Users\sh240\Documents\terSem\Programacion2\proyectAzo\proyectoProgra\obj\Debug\net8.0-windows\ref\ProyectoFinal.dll
+C:\Users\Aorus\OneDrive - Universidad Autónoma de Aguascalientes\3er Semestre\Programacion II\ProyectoFinal\proyectoProgra\obj\Debug\net8.0-windows\ProyectoFinal.Pagos.resources

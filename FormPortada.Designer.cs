@@ -30,7 +30,7 @@
         {
             buttonInicio = new Button();
             buttonSalir = new Button();
-            dateTimePicker1 = new DateTimePicker();
+            labelFecha = new Label();
             SuspendLayout();
             // 
             // buttonInicio
@@ -68,17 +68,14 @@
             buttonSalir.UseVisualStyleBackColor = false;
             buttonSalir.Click += buttonSalir_Click;
             // 
-            // dateTimePicker1
+            // labelFecha
             // 
-            dateTimePicker1.CalendarMonthBackground = Color.Transparent;
-            dateTimePicker1.CalendarTitleBackColor = Color.Transparent;
-            dateTimePicker1.CalendarTitleForeColor = SystemColors.ActiveBorder;
-            dateTimePicker1.Enabled = false;
-            dateTimePicker1.Location = new Point(423, 328);
-            dateTimePicker1.Margin = new Padding(2, 1, 2, 1);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(217, 23);
-            dateTimePicker1.TabIndex = 2;
+            labelFecha.AutoSize = true;
+            labelFecha.Location = new Point(537, 327);
+            labelFecha.Name = "labelFecha";
+            labelFecha.Size = new Size(38, 15);
+            labelFecha.TabIndex = 2;
+            labelFecha.Text = "Fecha";
             // 
             // FormPortada
             // 
@@ -87,7 +84,7 @@
             BackgroundImage = Properties.Resources.portada7;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(labelFecha);
             Controls.Add(buttonSalir);
             Controls.Add(buttonInicio);
             DoubleBuffered = true;
@@ -96,12 +93,13 @@
             Text = "Portada";
             Load += FormPortada_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button buttonInicio;
         private Button buttonSalir;
-        private DateTimePicker dateTimePicker1;
+        private Label labelFecha;
     }
 }

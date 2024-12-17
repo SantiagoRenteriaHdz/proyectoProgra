@@ -43,6 +43,7 @@
             timer1 = new System.Windows.Forms.Timer(components);
             dataGridView1 = new DataGridView();
             formsPlot1 = new ScottPlot.WinForms.FormsPlot();
+            labelVentas = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -184,7 +185,6 @@
             // dataGridView1
             // 
             dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BorderStyle = BorderStyle.Fixed3D;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -205,6 +205,16 @@
             formsPlot1.Size = new Size(499, 268);
             formsPlot1.TabIndex = 21;
             // 
+            // labelVentas
+            // 
+            labelVentas.AutoSize = true;
+            labelVentas.BackColor = Color.Transparent;
+            labelVentas.Location = new Point(266, 398);
+            labelVentas.Name = "labelVentas";
+            labelVentas.Size = new Size(80, 15);
+            labelVentas.TabIndex = 22;
+            labelVentas.Text = "Ventas Totales";
+            // 
             // FormAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -212,6 +222,7 @@
             BackgroundImage = Properties.Resources.admin2;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(labelVentas);
             Controls.Add(formsPlot1);
             Controls.Add(dataGridView1);
             Controls.Add(buttonGrafica);
@@ -251,5 +262,6 @@
         private System.Windows.Forms.Timer timer1;
         private DataGridView dataGridView1;
         private ScottPlot.WinForms.FormsPlot formsPlot1;
+        private Label labelVentas;
     }
 }

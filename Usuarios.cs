@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinal
 {
+    //Clase para guardar los datos de los usuarios
     public class Usuarios
     {
         private int id;

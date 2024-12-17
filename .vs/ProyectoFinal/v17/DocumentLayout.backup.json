@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|c:\\users\\aorus\\onedrive - universidad aut\u00F3noma de aguascalientes\\3er semestre\\programacion ii\\proyectofinal\\proyectoprogra\\pagos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|solutionrelative:pagos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|c:\\users\\aorus\\onedrive - universidad aut\u00F3noma de aguascalientes\\3er semestre\\programacion ii\\proyectofinal\\proyectoprogra\\formadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|solutionrelative:formadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\pagos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|solutionrelative:pagos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\formportada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|solutionrelative:formportada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|c:\\users\\aorus\\onedrive - universidad aut\u00F3noma de aguascalientes\\3er semestre\\programacion ii\\proyectofinal\\proyectoprogra\\formportada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{904F0E6B-196A-4356-9F07-CEFB9F8DE2E7}|ProyectoFinal.csproj|solutionrelative:formportada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,38 +26,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Pagos.cs",
-              "DocumentMoniker": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\Pagos.cs",
-              "RelativeDocumentMoniker": "Pagos.cs",
-              "ToolTip": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\Pagos.cs",
-              "RelativeToolTip": "Pagos.cs",
-              "ViewState": "AgIAAEQBAAAAAAAAAAAkwFgBAAA2AAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "FormPortada.cs",
+              "DocumentMoniker": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\FormPortada.cs",
+              "RelativeDocumentMoniker": "FormPortada.cs",
+              "ToolTip": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\FormPortada.cs",
+              "RelativeToolTip": "FormPortada.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAUwBYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T08:56:33.941Z",
+              "WhenOpened": "2024-12-17T19:02:46.281Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Pagos.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\Pagos.cs",
-              "RelativeDocumentMoniker": "Pagos.cs",
-              "ToolTip": "C:\\Users\\Aorus\\Downloads\\proyectoProgra\\proyectoProgra\\Pagos.cs [Dise\u00F1o]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Downloads\\proyectoProgra\\proyectoProgra\\Pagos.cs [Dise\u00F1o]",
+              "DocumentIndex": 0,
+              "Title": "FormAdmin.cs",
+              "DocumentMoniker": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\FormAdmin.cs",
+              "RelativeDocumentMoniker": "FormAdmin.cs",
+              "ToolTip": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\FormAdmin.cs*",
+              "RelativeToolTip": "FormAdmin.cs*",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAKkAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T08:56:09.045Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormPortada.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Aorus\\OneDrive - Universidad Aut\u00F3noma de Aguascalientes\\3er Semestre\\Programacion II\\ProyectoFinal\\proyectoProgra\\FormPortada.cs",
-              "RelativeDocumentMoniker": "FormPortada.cs",
-              "ToolTip": "C:\\Users\\Aorus\\Downloads\\proyectoProgra\\proyectoProgra\\FormPortada.cs [Dise\u00F1o]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Downloads\\proyectoProgra\\proyectoProgra\\FormPortada.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T08:50:19.607Z"
+              "WhenOpened": "2024-12-17T19:02:34.762Z",
+              "EditorCaption": ""
             }
           ]
         }

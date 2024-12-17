@@ -35,8 +35,10 @@ namespace ProyectoFinal
             //comprueba la cuenta que se ingreso
             if (ingresar.comprobarCuenta(cuenta, cont))
             {
+                //revisa si la cuenta es del administrador o de un usuario normal
                 if(ingresar.verificarAdmin(cuenta))
                 {
+                    //abre el form del admin y reinicia los valores de este form para cuando se vuelva a abrir
                     FormAdmin admin = new FormAdmin();
                     MessageBox.Show("Bienvenido administrador!!", "Ingresando...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
@@ -48,7 +50,7 @@ namespace ProyectoFinal
                 }
                 else
                 {
-
+                    //abre la tienda y reinicia los valores de este form
                     FormTienda usuario = new FormTienda(ingresar.datosCuenta(cuenta));
                     MessageBox.Show("Bienvenido a Urban Rodeo!!", "Ingresando...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
@@ -73,7 +75,7 @@ namespace ProyectoFinal
     
         private void buttonMostrar_Click(object sender, EventArgs e)
         {
-            
+            //cambia la imagen del boton y la propiedad para ver el texto de la contrasena
             textBoxContraseña.UseSystemPasswordChar = !textBoxContraseña.UseSystemPasswordChar;
             buttonMostrar.BackgroundImage = textBoxContraseña.UseSystemPasswordChar ? Properties.Resources.mostrar : Properties.Resources.ocultar;
 

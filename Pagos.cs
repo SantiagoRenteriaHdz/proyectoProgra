@@ -15,25 +15,31 @@ namespace ProyectoFinal
 {
     public partial class Pagos : Form
     {
-        int totProductos = 0;
-        List<Gorras> gorras;
-        Usuarios comprador;
-        int pago;
-        double pagoTot;
-        double impuesto;
-        int tipoPago;
+        int totProductos = 0;   //variable para guardar los productos que se van a pagar
+        List<Gorras> gorras;    //se usa para guardar los datos de los productos que se van a comprar
+        Usuarios comprador;     //se guardan los datos del comprador, para agregar el monto y para cuando se regrese a la otra pantalla
+        int pago;               //variable para el pago sin impuestos
+        double pagoTot;         //variable para el pago con impuestos
+        double impuesto;        //variable para calcular el impuesto
+        int tipoPago;           //variable para saber el metodo pago
 
 
         public Pagos(List<Gorras> productos, Usuarios usuario, int pago, int tipo)
         {
+            //se calcula el total de productos con la lista que se recibe
             totProductos = productos.Count;
             this.pago = pago;
+            //se pasa la lista de gorras que va a pagar
             gorras = productos;
+            //se pasan los datos del comprador
             comprador = usuario;
+            //se calcula el impuesto
             impuesto = pago * .06;
+            //se calcula el total a pagar
             pagoTot = pago + impuesto;
             InitializeComponent();
             tipoPago = tipo;
+            //se muestra lo necesario segun el tipo de pago
             tipodePago(tipoPago);
 
 
@@ -41,8 +47,8 @@ namespace ProyectoFinal
 
         private void Pagos_Load(object sender, EventArgs e)
         {
+            //se muestra la fecha y la hora normal
             labelFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-
 
             // Limpiar las columnas y filas del DataGridView
             dataGridView1.Columns.Clear();
@@ -60,6 +66,7 @@ namespace ProyectoFinal
                 dataGridView1.Rows.Add(producto.Id, producto.Nombre, producto.Precio);
             }
 
+            //se muestran los datos que se piden
             labelPago.Text = "Pago: " + pago;
             labelTotproductos.Text = "Cantidad de productos: " + totProductos;
             labelImpuesto.Text = "6% de impuesto: " + impuesto;
@@ -69,6 +76,7 @@ namespace ProyectoFinal
 
         private void tipodePago(int tipoPago)
         {
+            //se muestra solo lo necesario segun el tipo de pago
             switch (tipoPago)
             {
                 case 0: //efectivo
@@ -96,6 +104,7 @@ namespace ProyectoFinal
         }
 
 
+        //se crea el evento click para el qr
         private void pictureBoxQR_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Pago realizado.", "Gracias por su compra.", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -103,9 +112,11 @@ namespace ProyectoFinal
             //cambios en bd
             ConexionBD modificar = new ConexionBD();
 
+            //se hace cast a la variable del pago total
             int agregado = (int)pagoTot;
+
             // Actualizar el monto del comprador
-            modificar.actualizarMontoUsuario(comprador.Id, comprador.Monto + agregado); // Asumiendo que "comprador.Monto" es el saldo actual del usuario
+            modificar.actualizarMontoUsuario(comprador.Id, comprador.Monto + agregado);
 
             // Actualizar existencias de los productos comprados
             foreach (var gorra in gorras)
@@ -114,16 +125,18 @@ namespace ProyectoFinal
                 modificar.actualizarProducto(gorra.Id, gorra.Nombre, nuevaExistencia, gorra.Descripcion, gorra.Precio, gorra.Imagen); // Actualizamos la base de datos con la nueva existencia
             }
 
-            //se hace la nota
+
+            //se la instancia de la interfaz para guardar el archivo
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
                 Filter = "Archivos PDF (*.pdf)|*.pdf",
                 Title = "Guardar archivo PDF"
             };
 
+            //si se abre la interfaz,  se manda llamar la funcion para crear la imagen de la nota
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                ExportarFormularioAPDF(this, saveFileDialog.FileName); // Exportar el formulario actual
+                ExportarFormularioAPDF(this, saveFileDialog.FileName); //se manda el formulario actual y la ruta que el usuario haya elegido para guardar
             }
 
             this.Close();
@@ -137,7 +150,7 @@ namespace ProyectoFinal
         }
 
         //funcion para capturar la nota
-
+        //recibe el formulario actual y la region que quieres que se capture del form
         Bitmap CapturarFormulario(Form formulario, Rectangle region)
         {
             // Crear un bitmap con el tamaño del formulario
@@ -153,12 +166,13 @@ namespace ProyectoFinal
         void ExportarFormularioAPDF(Form formulario, string rutaArchivo)
         {
 
-            // Asegurarse de que el formulario esté en primer plano
+            // se pone el form al frente, para que en la captura solo se vea el form
             formulario.BringToFront();
 
-            // Actualizar el formulario para asegurarse de que se dibuje correctamente
+            //se actualiza el form para que se vea la informacion actualizada
             formulario.Invalidate();
             formulario.Update();
+
 
             // Definir el rectángulo que representa el área del GroupBox
             Rectangle areaDeCaptura = new Rectangle(
@@ -181,15 +195,15 @@ namespace ProyectoFinal
                 );
             }
 
-            // Crear un nuevo documento PDF
+            // se crea una instancia para el documento pdf
             PdfDocument documento = new PdfDocument();
             PdfPage pagina = documento.AddPage();
 
             // Configurar el tamaño de la página del PDF según la imagen capturada
-            pagina.Width = XUnit.FromPoint(captura.Width * 0.75f);  // Escalar según el DPI
+            pagina.Width = XUnit.FromPoint(captura.Width * 0.75f);  
             pagina.Height = XUnit.FromPoint(captura.Height * 0.75f);
 
-            // Convertir la imagen Bitmap a un MemoryStream
+            // Convertir la imagen Bitmap a un MemoryStream para poder maniobrar con la imagen de la nota
             using (MemoryStream memoryStream = new MemoryStream())
             {
                 captura.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Png); // Guardar como PNG
@@ -207,19 +221,28 @@ namespace ProyectoFinal
             documento.Save(rutaArchivo);
         }
 
+
+        //boton para pagar en efectivo
         private void buttonPagar_Click_1(object sender, EventArgs e)
         {
+            //se crea la variable del dinero que se recibe
             double recibido;
+
+            //se pasa a double el dinero recibido
             double.TryParse(textBoxRecibido.Text, out recibido);
 
+            //si el dinero recibido es menor a lo que debe pagar, manda un error
             if (recibido < pagoTot)
             {
                 MessageBox.Show("Monto inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
+                //variable para mostrar el cambio
                 double cambio;
+                //se calcula el cambio
                 cambio = recibido - pagoTot;
+                //se redondea el cambio
                 cambio = Math.Round(cambio);
                 MessageBox.Show("Tu cambio es: $" + cambio, "Gracias por su compra", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -227,8 +250,9 @@ namespace ProyectoFinal
                 ConexionBD modificar = new ConexionBD();
 
                 int agregado = (int)pagoTot;
+
                 // Actualizar el monto del comprador
-                modificar.actualizarMontoUsuario(comprador.Id, comprador.Monto + agregado); // Asumiendo que "comprador.Monto" es el saldo actual del usuario
+                modificar.actualizarMontoUsuario(comprador.Id, comprador.Monto + agregado); 
 
                 // Actualizar existencias de los productos comprados
                 foreach (var gorra in gorras)
@@ -265,22 +289,28 @@ namespace ProyectoFinal
         private void buttonPagoTarjeta_Click_1(object sender, EventArgs e)
         {
             string tarjeta;
+            //se usa para calcular los digitos de la tarjeta
             int i;
             tarjeta = textBoxTarjeta.Text;
             i = tarjeta.Length;
             string fecha = textBoxFecha.Text;
+            //se usa para ver si puso una fecha valida
             int fechaValida = fecha.Length;
             string cvv = textBoxCvv.Text;
+            //se usa para saber si puso un cvv valido
             int cvvValido = cvv.Length;
 
+            //se verifica que la tarjeta tenga 16 digitos
             if (i != 16)
             {
                 MessageBox.Show("Introduce una tarjeta válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            //se verifica la fecha
             else if (fechaValida != 5)
             {
                 MessageBox.Show("Introduce una fecha válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            //se verifica el cvv
             else if (cvvValido != 3)
             {
                 MessageBox.Show("Introduce un CVV válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -289,7 +319,7 @@ namespace ProyectoFinal
             {
                 MessageBox.Show("Pago realizado.", "Gracias por su compra.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Cambios en BD (actualización de monto del usuario y existencias de productos)
+                // Cambios en BD 
                 ConexionBD modificar = new ConexionBD();
                 int agregado = (int)pagoTot;
 
@@ -315,10 +345,9 @@ namespace ProyectoFinal
                     ExportarFormularioAPDF(this, saveFileDialog.FileName); // Exportar el formulario actual como PDF
                 }
 
-                // Después de todo esto, cerramos el formulario actual y mostramos de nuevo la tienda
+                // Se cierra el form y se muestra el de la tienda
                 this.Close();
-
-                // Cerrar el formulario Pagos y reabrir el formulario FormTienda con los datos actualizados
+               
                 FormTienda abrirTienda = new FormTienda(comprador); // Pasamos los datos del usuario
                 FormTienda.DineroPagar = 0;
                 abrirTienda.cargarTienda();
@@ -338,6 +367,7 @@ namespace ProyectoFinal
 
         }
 
+        //boton para cancelar el pago
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();

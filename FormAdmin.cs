@@ -13,10 +13,10 @@ namespace ProyectoFinal
 {
     public partial class FormAdmin : Form
     {
-        List<Gorras> registros;
+        List<Gorras> registros; //se usa para guardar los datos de los productos de la base de datos
         private bool mostrarGrafica = false;
-        List<Usuarios> usuarios;
-        int montoTotal = 0;
+        int montoTotal = 0;     //se usa para calcular el total de ventas
+
         public FormAdmin()
         {
             ConexionBD ventas = new ConexionBD();
@@ -41,6 +41,7 @@ namespace ProyectoFinal
             int precio;
             string imagen;
 
+            //comprueba que haya menos de 10 registros
             if (registros.Count >= 10)
             {
                 MessageBox.Show("No puedes agregar mas productos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -72,7 +73,9 @@ namespace ProyectoFinal
         private void buttonBajas_Click(object sender, EventArgs e)
         {
             int eliminar;
-            if (registros.Count <= 1)
+
+            //comprueba que haya minimo 6 productos
+            if (registros.Count <= 6)
             {
                 MessageBox.Show("No puedes eliminar mas productos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -97,6 +100,7 @@ namespace ProyectoFinal
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            //se usa para que el data grid se actualice siempre
             actualizarInfo();
 
         }
@@ -104,7 +108,9 @@ namespace ProyectoFinal
         private void FormAdmin_Load(object sender, EventArgs e)
         {
             timer1.Start();
+            //se actualiza la informacion al abrir el form
             actualizarInfo();
+            //muestra todo menos la grafica pero si la crea
             dataGridView1.Visible = true;
             labelLista.Visible = true;
             formsPlot1.Visible = false;
@@ -116,8 +122,10 @@ namespace ProyectoFinal
 
         }
 
+        //metodo para actualizar los datos de los productos en el data grid
         private void actualizarInfo()
         {
+
             ConexionBD mostrar = new ConexionBD();
 
             registros = mostrar.consulta();
@@ -135,6 +143,7 @@ namespace ProyectoFinal
             timer1.Stop();
         }
 
+        //boton para activar la grafica
         private void buttonGrafica_Click(object sender, EventArgs e)
         {
             if (mostrarGrafica)
@@ -157,6 +166,7 @@ namespace ProyectoFinal
             mostrarGrafica = !mostrarGrafica;
         }
 
+        //metodo para crear la grafica
         private void crearGrafica(List<Gorras> registros)
         {
             
@@ -171,7 +181,7 @@ namespace ProyectoFinal
 
             // Crear los ticks con los nombres de las gorras
             ScottPlot.Tick[] ticks = registros
-                .Select((gorra, index) => new ScottPlot.Tick(index + 1, gorra.Nombre))  // Asociar cada nombre de gorra con su posición
+                .Select((gorra, index) => new ScottPlot.Tick(index + 1, gorra.Id.ToString()))  // Asociar cada id de gorra con su posición
                 .ToArray();
 
             // Establecer los ticks en el eje X

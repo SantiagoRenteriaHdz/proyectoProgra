@@ -10,9 +10,11 @@ public class ConexionBD
 
     public ConexionBD()
 	{
+        //el constructor se conecta con la base de datos
 		this.conectar();
 	}
 
+    //metodo para conectarse a la base de datos
 	public void conectar()
 	{
 		string connection = "Server=localhost;Database=tienda;User=root; Password=; SslMode=none;";
@@ -28,6 +30,7 @@ public class ConexionBD
 
 	}
 
+    //metodo para desconectar la base de datos
 	public void desconectar()
 	{
 		if(conexion != null && conexion.State == System.Data.ConnectionState.Open)
@@ -36,7 +39,7 @@ public class ConexionBD
 		}
 	}
 
-    //ingreso a una cuenta
+    //comprueba que la cuenta se haya ingresado correctamente
     public bool comprobarCuenta(string cuenta, string contrasena)
     {
         bool existe = false;
@@ -234,6 +237,7 @@ public class ConexionBD
         }
     }
 
+    //metodo para calcular las ventas totales
     public int ventasTotales()
     {
         
@@ -267,6 +271,8 @@ public class ConexionBD
         return montoTotal;
     }
 
+
+    //se actualiza en la base de datos las existencias de un producto
     public void actualizarProducto(int id, string nombre, int nuevaExistencia, string descripcion,int precio, string imagen)
     {
         try
@@ -309,6 +315,7 @@ public class ConexionBD
         }
     }
 
+    //se actualiza el monto de usuario en la base de datos
     public void actualizarMontoUsuario(int id, int nuevoMonto)
     {
         try

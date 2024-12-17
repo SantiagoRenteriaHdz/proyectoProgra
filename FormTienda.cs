@@ -2,16 +2,17 @@ namespace ProyectoFinal
 {
     public partial class FormTienda : Form
     {
-        List<Panel> paneles;
-        Usuarios infoUsuario;
-        static int cont = 0;
-        ConexionBD mostrar = new ConexionBD();
-        List<Gorras> registros;
-        DateTime fecha = DateTime.Now;
-        List<Gorras> compras;
-        static int dineroPagar;
 
-        public static int DineroPagar { get => dineroPagar; set => dineroPagar = value; }
+        List<Panel> paneles;    //Lista para crear los paneles de los productos
+        Usuarios infoUsuario;   //para guardar los datos del usuario que ingreso
+        static int cont = 0;    //se usa para mostrar los paneles
+        ConexionBD mostrar = new ConexionBD();  //se crea una instancia para poder usar la base de datos
+        List<Gorras> registros; //Lista para poder imprimir los datos de los productos en cada panel
+        DateTime fecha = DateTime.Now;  //para ver la fecha y hora
+        List<Gorras> compras;   //para registrar lo que se agregue al carrito
+        static int dineroPagar; //para mostrar en pantalla la cantidad de dinero que pagara
+
+        public static int DineroPagar { get => dineroPagar; set => dineroPagar = value; } // propiedad para guardar el valor si el usuario no paga
 
         public FormTienda(Usuarios datos)
         {
@@ -30,17 +31,19 @@ namespace ProyectoFinal
 
         private void FormTienda_Load(object sender, EventArgs e)
         {
-            // Poner la fecha inicial al cargar el formulario (esto no es necesario si el Timer lo actualiza)
+            // se muestra la fecha y el nombre del usuario
             labelFecha.Text = fecha.ToString("dd/MM/yyyy HH:mm:ss");
             labelUsuario.Text = infoUsuario.Name;
-            // Crear y configurar la lista de paneles
+            // se crea la instancia para crear los paneles
             this.paneles = new List<Panel>();
+            //actualiza los paneles cada que abre el form
             this.cargarTienda();
 
         }
 
         private void buttonSalir_Click(object sender, EventArgs e)
         {
+            //cierra este form y abre el de inicio sesion
             this.Close();
             InicioSesion abrir = new InicioSesion();
             abrir.Show();
@@ -48,14 +51,16 @@ namespace ProyectoFinal
 
         public void cargarTienda()
         {
+            //se reinicia para que al abrir de nuevo este form, se muestren los paneles como deben de ser
             cont = 0;
             
-
+            //se guardan los datos de la base de datos en la lista de las gorras
             this.registros = mostrar.consulta();
 
-            // Crear y configurar la lista de paneles
+            // Se vuelven a crear los paneles al volver a abrir el form
             this.paneles = new List<Panel>();
 
+            //calcular el numero de productos
             int numPaneles = this.registros.Count;
             for (int i = 0; i < numPaneles; i++)
             {
@@ -64,10 +69,10 @@ namespace ProyectoFinal
             }
         }
 
-        // Evento Tick del Timer para actualizar la fecha cada segundo
+        // timer para actualizar la fehca y el carrito
         private void timer1_Tick(object sender, EventArgs e)
         {
-            // Actualiza el labelFecha con la fecha actual cada vez que se dispare el evento Tick
+            
             labelFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             labelDinero.Text = DineroPagar.ToString();
 
@@ -77,13 +82,14 @@ namespace ProyectoFinal
         {
             int vec = 90; // Variable para manejar la posición vertical
             int j = cont;
-            if (i >= 5)
+            if (i >= 5) //esto es para que despues de 5 productos, se muestren abajo los restantes
             {
                 vec = 400;
                 j -= 5;
 
             }
 
+            //se cicla la lista de los productos usando una variable
             Gorras gorra = registros[i];
 
             // Crear un nuevo panel
@@ -98,9 +104,10 @@ namespace ProyectoFinal
                 Tag = registros[i]
             };
 
-            // Método para asignar el evento Click al panel y sus controles hijos
+            // metodo para crear el evento click en los paneles y sus elementos
             void AsignarEventoClick(Control control, Gorras producto)
             {
+                //se configura el evento click, solo cuando si hay existencias
                 if (producto.Existencias > 0)
                 {
 
@@ -109,65 +116,68 @@ namespace ProyectoFinal
 
                         //se agrega el producto a la lista de compras
                         compras.Add(producto);
+                        //se suma el costo del producto al total a pagar
                         DineroPagar += producto.Precio;
 
                         MessageBox.Show($"Se agregó {producto.Nombre} al carrito.", "Agregado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     };
+
+                    //se asigna el evento click a todo lo que este dentro del panel
                     foreach (Control child in control.Controls)
                     {
-                        AsignarEventoClick(child, producto); // Recursivamente asignar evento a hijos
+                        AsignarEventoClick(child, producto); 
                     }
                 }
 
             }
 
-            // Crear y agregar el primer Label en la parte superior del panel
+            // se crea y agrega el label para el nombre
             Label LabelNombre = new Label
             {
                 Text = registros[i].Nombre,
                 Size = new Size(177, 20),
-                Location = new Point(10, 170), // En la parte superior del panel
+                Location = new Point(10, 170), 
                 TextAlign = ContentAlignment.MiddleCenter,
                 ForeColor = Color.Black,
                 BackColor = Color.Transparent,
-                Font = new Font("Arial", 12, FontStyle.Bold) // Cambié el tamaño a 12 y lo puse en negrita
+                Font = new Font("Arial", 12, FontStyle.Bold)
             };
             panel.Controls.Add(LabelNombre);
 
-            // Crear y agregar una PictureBox dentro del panel
+            // se crea el pictureBox para la imagen del producto
             PictureBox pictureBox = new PictureBox
             {
                 Size = new Size(165, 150),
-                Location = new Point(20, 10), // Debajo del topLabel
+                Location = new Point(20, 10), 
                 BackColor = Color.White,
                 BorderStyle = BorderStyle.FixedSingle,
                 SizeMode = PictureBoxSizeMode.StretchImage
             };
 
             // Intentamos obtener la imagen del recurso con el nombre almacenado en la base de datos
-            string nombreImagen = registros[i].Imagen; // Aquí supongo que Imagen es el nombre del recurso sin la extensión
+            string nombreImagen = registros[i].Imagen; //el nombre de la imagen tiene que ser sin extension
 
             try
             {
-                // Usar Reflection para obtener el recurso de imagen desde los recursos del proyecto
+                //se usa esta linea para obtener la imagen de la carpeta de recursos con el nombre de la base de datos
                 var imageResource = (System.Drawing.Image)Properties.Resources.ResourceManager.GetObject(nombreImagen);
 
 
                 if (registros[i].Existencias == 0) // Si el producto no tiene existencias
                 {
-                    pictureBox.Image = Properties.Resources.agotado;               // Muestra que esta agotado
+                    pictureBox.Image = Properties.Resources.agotado;               // Muestra imagen de agotado
                     pictureBox.BackColor = Color.Transparent;
                     pictureBox.BorderStyle = BorderStyle.None;
                 }
                 else
                 {
-                    if (imageResource != null)             // Si la imagen se encuentra
+                    if (imageResource != null)             // Si la imagen se encuentra, se muestra
                     {
                         pictureBox.Image = imageResource;
                     }
                     else
                     {
-                        pictureBox.Image = Properties.Resources.has2; // Imagen predeterminada
+                        pictureBox.Image = Properties.Resources.has2; // si no se encuentra se pone una predeterminada
                     }
                 }
             }
@@ -180,41 +190,41 @@ namespace ProyectoFinal
 
             panel.Controls.Add(pictureBox);
 
-            // Crear y agregar un Label justo debajo de la imagen
+            // se hace el label para mostrar la descripcion del producto
             Label labelDescripcion = new Label
             {
                 Text = registros[i].Descripcion,
-                Size = new Size(177, 40),  // Aumenta la altura del Label para acomodar varias líneas
+                Size = new Size(177, 40),  
                 Location = new Point(10, 185),
                 TextAlign = ContentAlignment.MiddleCenter,
                 ForeColor = Color.Black,
                 BackColor = Color.Transparent,
-                AutoSize = false,  // Desactivar el ajuste automático
-                Font = new Font("Arial", 8, FontStyle.Regular),  // Puedes ajustar el tamaño de la fuente si es necesario
-                MaximumSize = new Size(177, 40)  // Permite que el texto ocupe más de una línea dentro del tamaño máximo del Label
+                AutoSize = false,  
+                Font = new Font("Arial", 8, FontStyle.Regular),  
+                MaximumSize = new Size(177, 40) 
             };
 
             panel.Controls.Add(labelDescripcion);
 
-            // Crear y agregar un nuevo Label que muestra un número, alineado a la derecha
+            // se crea label para mostrar las existencias
             Label labelExistencias = new Label
             {
-                Text = "Existencias: " + registros[i].Existencias.ToString(), // Número dinámico basado en i
+                Text = "Existencias: " + registros[i].Existencias.ToString(), 
                 Size = new Size(100, 20), // Tamaño del Label
-                Location = new Point(panel.Width - 100, panel.Height - 25), // Esquina inferior derecha del panel
+                Location = new Point(panel.Width - 100, panel.Height - 25), 
                 TextAlign = ContentAlignment.MiddleRight,
                 ForeColor = Color.Black,
                 BackColor = Color.Transparent
             };
             panel.Controls.Add(labelExistencias);
 
-            // Crear y agregar el Label en la parte inferior, alineado a la izquierda
+            // se hace label para mostrar el precio
             Label labelPrecio = new Label
             {
                 Text = "$" + registros[i].Precio.ToString(),
                 Size = new Size(100, 20),
-                Location = new Point(10, panel.Height - 25), // Alineado a la izquierda y en la parte inferior
-                TextAlign = ContentAlignment.MiddleLeft, // Alineación a la izquierda
+                Location = new Point(10, panel.Height - 25), 
+                TextAlign = ContentAlignment.MiddleLeft, 
                 ForeColor = Color.Black,
                 BackColor = Color.Transparent,
                 Font = new Font("Arial", 12)
@@ -232,7 +242,7 @@ namespace ProyectoFinal
         }
 
 
-
+        //boton para borrar el carrito
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Se eliminó el carrito de compras.", "Borrando...", MessageBoxButtons.OK);
@@ -240,6 +250,7 @@ namespace ProyectoFinal
             compras.Clear();
         }
 
+        //boton para pagar en efectivo
         private void buttonEfectivo_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -248,6 +259,7 @@ namespace ProyectoFinal
 
         }
 
+        //boton para pagar con tarjeta
         private void buttonTarjeta_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -256,6 +268,7 @@ namespace ProyectoFinal
             
         }
 
+        //boton para pagar con oxxo
         private void buttonOxxo_Click(object sender, EventArgs e)
         {
             this.Close();

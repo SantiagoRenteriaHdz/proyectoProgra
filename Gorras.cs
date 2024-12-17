@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinal
 {
+    //clase para registrar los datos de los productos
     public class Gorras
     {
         private int id;

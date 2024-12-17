@@ -9,8 +9,9 @@ namespace ProyectoFinal
         List<Gorras> registros;
         DateTime fecha = DateTime.Now;
         List<Gorras> compras;
-        int dineroPagar;
+        static int dineroPagar;
 
+        public static int DineroPagar { get => dineroPagar; set => dineroPagar = value; }
 
         public FormTienda(Usuarios datos)
         {
@@ -19,12 +20,11 @@ namespace ProyectoFinal
             //se inicializa la lista de compras
             compras = new List<Gorras>();
             InitializeComponent();
-
+           
 
             // Configuración del Timer para la fecha yhora
             timer1.Interval = 1000;  // Intervalo de 1 segundo (1000 ms)
             timer1.Start();          // Iniciar el Timer
-
 
         }
 
@@ -33,24 +33,35 @@ namespace ProyectoFinal
             // Poner la fecha inicial al cargar el formulario (esto no es necesario si el Timer lo actualiza)
             labelFecha.Text = fecha.ToString("dd/MM/yyyy HH:mm:ss");
             labelUsuario.Text = infoUsuario.Name;
-
-            registros = mostrar.consulta();
-
-
-
             // Crear y configurar la lista de paneles
-            paneles = new List<Panel>();
+            this.paneles = new List<Panel>();
+            this.cargarTienda();
 
-            int numPaneles = registros.Count;
-            for (int i = 0; i < numPaneles; i++)
-            {
-                crearPaneles(i);
-            }
         }
 
         private void buttonSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+            InicioSesion abrir = new InicioSesion();
+            abrir.Show();
+        }
+
+        public void cargarTienda()
+        {
+            cont = 0;
+            
+
+            this.registros = mostrar.consulta();
+
+            // Crear y configurar la lista de paneles
+            this.paneles = new List<Panel>();
+
+            int numPaneles = this.registros.Count;
+            for (int i = 0; i < numPaneles; i++)
+            {
+                crearPaneles(i);
+                cont++;
+            }
         }
 
         // Evento Tick del Timer para actualizar la fecha cada segundo
@@ -58,18 +69,19 @@ namespace ProyectoFinal
         {
             // Actualiza el labelFecha con la fecha actual cada vez que se dispare el evento Tick
             labelFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-            labelDinero.Text = dineroPagar.ToString();
+            labelDinero.Text = DineroPagar.ToString();
 
         }
 
         private void crearPaneles(int i)
         {
             int vec = 90; // Variable para manejar la posición vertical
+            int j = cont;
             if (i >= 5)
             {
                 vec = 400;
-                i = cont;
-                cont++;
+                j -= 5;
+
             }
 
             Gorras gorra = registros[i];
@@ -77,9 +89,9 @@ namespace ProyectoFinal
             // Crear un nuevo panel
             Panel panel = new Panel
             {
-                Size = new Size(200, 230),
+                Size = new Size(200, 250),
                 AutoSize = true,
-                Location = new Point(30 + (i * 237), vec), // Espaciado horizontal
+                Location = new Point(30 + (j * 237), vec), // Espaciado horizontal
                 BackColor = Color.FromArgb(212, 197, 182),
 
                 // se crea un tag para poder pasar el dato justo al evento click, osea al agregar al carrito
@@ -97,7 +109,7 @@ namespace ProyectoFinal
 
                         //se agrega el producto a la lista de compras
                         compras.Add(producto);
-                        dineroPagar += producto.Precio;
+                        DineroPagar += producto.Precio;
 
                         MessageBox.Show($"Se agregó {producto.Nombre} al carrito.", "Agregado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     };
@@ -114,18 +126,19 @@ namespace ProyectoFinal
             {
                 Text = registros[i].Nombre,
                 Size = new Size(177, 20),
-                Location = new Point(10, 10), // En la parte superior del panel
+                Location = new Point(10, 170), // En la parte superior del panel
                 TextAlign = ContentAlignment.MiddleCenter,
                 ForeColor = Color.Black,
-                BackColor = Color.Transparent
+                BackColor = Color.Transparent,
+                Font = new Font("Arial", 12, FontStyle.Bold) // Cambié el tamaño a 12 y lo puse en negrita
             };
             panel.Controls.Add(LabelNombre);
 
             // Crear y agregar una PictureBox dentro del panel
             PictureBox pictureBox = new PictureBox
             {
-                Size = new Size(177, 92),
-                Location = new Point(10, 40), // Debajo del topLabel
+                Size = new Size(165, 150),
+                Location = new Point(20, 10), // Debajo del topLabel
                 BackColor = Color.White,
                 BorderStyle = BorderStyle.FixedSingle,
                 SizeMode = PictureBoxSizeMode.StretchImage
@@ -171,12 +184,16 @@ namespace ProyectoFinal
             Label labelDescripcion = new Label
             {
                 Text = registros[i].Descripcion,
-                Size = new Size(177, 20),
-                Location = new Point(10, pictureBox.Bottom + 5),
+                Size = new Size(177, 40),  // Aumenta la altura del Label para acomodar varias líneas
+                Location = new Point(10, 185),
                 TextAlign = ContentAlignment.MiddleCenter,
                 ForeColor = Color.Black,
-                BackColor = Color.Transparent
+                BackColor = Color.Transparent,
+                AutoSize = false,  // Desactivar el ajuste automático
+                Font = new Font("Arial", 8, FontStyle.Regular),  // Puedes ajustar el tamaño de la fuente si es necesario
+                MaximumSize = new Size(177, 40)  // Permite que el texto ocupe más de una línea dentro del tamaño máximo del Label
             };
+
             panel.Controls.Add(labelDescripcion);
 
             // Crear y agregar un nuevo Label que muestra un número, alineado a la derecha
@@ -199,7 +216,8 @@ namespace ProyectoFinal
                 Location = new Point(10, panel.Height - 25), // Alineado a la izquierda y en la parte inferior
                 TextAlign = ContentAlignment.MiddleLeft, // Alineación a la izquierda
                 ForeColor = Color.Black,
-                BackColor = Color.Transparent
+                BackColor = Color.Transparent,
+                Font = new Font("Arial", 12)
             };
             panel.Controls.Add(labelPrecio);
 
@@ -218,38 +236,39 @@ namespace ProyectoFinal
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Se eliminó el carrito de compras.", "Borrando...", MessageBoxButtons.OK);
-            dineroPagar = 0;
+            DineroPagar = 0;
             compras.Clear();
         }
 
         private void buttonEfectivo_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Pagos efectivo = new Pagos(compras, infoUsuario, dineroPagar, 0);
-            efectivo.ShowDialog();
+            this.Close();
+            Pagos efectivo = new Pagos(compras, infoUsuario, DineroPagar, 0);
+            efectivo.Show();
 
-            this.Show();
         }
 
         private void buttonTarjeta_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Pagos efectivo = new Pagos(compras, infoUsuario, dineroPagar, 1);
-            efectivo.ShowDialog();
-
-            this.Show();
+            this.Close();
+            Pagos efectivo = new Pagos(compras, infoUsuario, DineroPagar, 1);
+            efectivo.Show();
+            
         }
 
         private void buttonOxxo_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Pagos efectivo = new Pagos(compras, infoUsuario, dineroPagar, 2);
-            efectivo.ShowDialog();
+            this.Close();
+            Pagos efectivo = new Pagos(compras, infoUsuario, DineroPagar, 2);
+            efectivo.Show();
 
 
-            this.Show();
+           
         }
 
+        private void labelDinero_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

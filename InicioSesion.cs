@@ -51,12 +51,11 @@ namespace ProyectoFinal
 
                     FormTienda usuario = new FormTienda(ingresar.datosCuenta(cuenta));
                     MessageBox.Show("Bienvenido a Urban Rodeo!!", "Ingresando...", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Hide();
-                    usuario.ShowDialog();
+                    this.Close();
+                    usuario.Show();
                     textBoxCuenta.Text = "";
                     textBoxContraseña.Text = "";
                     ingresar.desconectar();
-                    this.Show();
                 }
             }
             else

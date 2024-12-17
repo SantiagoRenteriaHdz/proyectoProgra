@@ -73,6 +73,16 @@ namespace ProyectoFinal.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap admin6 {
+            get {
+                object obj = ResourceManager.GetObject("admin6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap agotado {
             get {
                 object obj = ResourceManager.GetObject("agotado", resourceCulture);
@@ -206,6 +216,16 @@ namespace ProyectoFinal.Properties {
         internal static System.Drawing.Bitmap mostrar {
             get {
                 object obj = ResourceManager.GetObject("mostrar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap notaventa {
+            get {
+                object obj = ResourceManager.GetObject("notaventa", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -155,10 +155,11 @@
             // 
             labelLista.AutoSize = true;
             labelLista.BackColor = Color.Transparent;
-            labelLista.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelLista.Font = new Font("Franklin Gothic Demi Cond", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelLista.ForeColor = Color.FromArgb(79, 60, 42);
             labelLista.Location = new Point(430, 75);
             labelLista.Name = "labelLista";
-            labelLista.Size = new Size(166, 25);
+            labelLista.Size = new Size(145, 24);
             labelLista.TabIndex = 18;
             labelLista.Text = "Lista de productos";
             // 
@@ -170,9 +171,9 @@
             buttonGrafica.FlatAppearance.MouseDownBackColor = Color.Transparent;
             buttonGrafica.FlatAppearance.MouseOverBackColor = Color.Transparent;
             buttonGrafica.FlatStyle = FlatStyle.Flat;
-            buttonGrafica.Location = new Point(477, 388);
+            buttonGrafica.Location = new Point(662, 388);
             buttonGrafica.Name = "buttonGrafica";
-            buttonGrafica.Size = new Size(99, 34);
+            buttonGrafica.Size = new Size(89, 29);
             buttonGrafica.TabIndex = 19;
             buttonGrafica.UseVisualStyleBackColor = false;
             buttonGrafica.Click += buttonGrafica_Click;
@@ -207,19 +208,21 @@
             // 
             // labelVentas
             // 
-            labelVentas.AutoSize = true;
             labelVentas.BackColor = Color.Transparent;
-            labelVentas.Location = new Point(266, 398);
+            labelVentas.Font = new Font("Franklin Gothic Demi Cond", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelVentas.ForeColor = Color.FromArgb(79, 60, 42);
+            labelVentas.Location = new Point(300, 388);
             labelVentas.Name = "labelVentas";
-            labelVentas.Size = new Size(80, 15);
+            labelVentas.Size = new Size(171, 25);
             labelVentas.TabIndex = 22;
             labelVentas.Text = "Ventas Totales";
+            labelVentas.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // FormAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.admin2;
+            BackgroundImage = Properties.Resources.admin6;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
             Controls.Add(labelVentas);

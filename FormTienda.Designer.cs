@@ -51,7 +51,7 @@
             buttonSalir.FlatAppearance.MouseDownBackColor = Color.Transparent;
             buttonSalir.FlatAppearance.MouseOverBackColor = Color.Transparent;
             buttonSalir.FlatStyle = FlatStyle.Flat;
-            buttonSalir.Location = new Point(735, 371);
+            buttonSalir.Location = new Point(1252, 629);
             buttonSalir.Name = "buttonSalir";
             buttonSalir.Size = new Size(53, 48);
             buttonSalir.TabIndex = 0;
@@ -62,10 +62,11 @@
             // 
             labelUsuario.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             labelUsuario.BackColor = Color.Transparent;
-            labelUsuario.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelUsuario.Location = new Point(682, 0);
+            labelUsuario.Font = new Font("Corbel", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelUsuario.ForeColor = Color.FromArgb(185, 162, 136);
+            labelUsuario.Location = new Point(1199, 9);
             labelUsuario.Name = "labelUsuario";
-            labelUsuario.Size = new Size(116, 40);
+            labelUsuario.Size = new Size(149, 40);
             labelUsuario.TabIndex = 1;
             labelUsuario.Text = "Usuario";
             // 
@@ -73,10 +74,11 @@
             // 
             labelFecha.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             labelFecha.BackColor = Color.Transparent;
-            labelFecha.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelFecha.Location = new Point(589, 426);
+            labelFecha.Font = new Font("Franklin Gothic Demi Cond", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelFecha.ForeColor = Color.FromArgb(185, 162, 136);
+            labelFecha.Location = new Point(1199, 680);
             labelFecha.Name = "labelFecha";
-            labelFecha.Size = new Size(209, 23);
+            labelFecha.Size = new Size(149, 28);
             labelFecha.TabIndex = 2;
             labelFecha.Text = "Fecha";
             labelFecha.TextAlign = ContentAlignment.MiddleCenter;
@@ -92,12 +94,14 @@
             labelDinero.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             labelDinero.AutoSize = true;
             labelDinero.BackColor = Color.Transparent;
-            labelDinero.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelDinero.Location = new Point(653, 129);
+            labelDinero.Font = new Font("Franklin Gothic Demi Cond", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelDinero.ForeColor = Color.FromArgb(185, 162, 136);
+            labelDinero.Location = new Point(1233, 91);
             labelDinero.Name = "labelDinero";
-            labelDinero.Size = new Size(86, 32);
+            labelDinero.Size = new Size(72, 30);
             labelDinero.TabIndex = 3;
             labelDinero.Text = "Dinero";
+            labelDinero.Click += labelDinero_Click;
             // 
             // buttonEliminar
             // 
@@ -108,41 +112,56 @@
             buttonEliminar.FlatAppearance.MouseDownBackColor = Color.Transparent;
             buttonEliminar.FlatAppearance.MouseOverBackColor = Color.Transparent;
             buttonEliminar.FlatStyle = FlatStyle.Flat;
-            buttonEliminar.Location = new Point(613, 200);
+            buttonEliminar.Location = new Point(1214, 140);
             buttonEliminar.Name = "buttonEliminar";
-            buttonEliminar.Size = new Size(152, 53);
+            buttonEliminar.Size = new Size(124, 47);
             buttonEliminar.TabIndex = 4;
             buttonEliminar.UseVisualStyleBackColor = false;
             buttonEliminar.Click += buttonEliminar_Click;
             // 
             // buttonEfectivo
             // 
-            buttonEfectivo.Location = new Point(613, 215);
+            buttonEfectivo.BackColor = Color.Transparent;
+            buttonEfectivo.Cursor = Cursors.Hand;
+            buttonEfectivo.FlatAppearance.BorderSize = 0;
+            buttonEfectivo.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonEfectivo.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonEfectivo.FlatStyle = FlatStyle.Flat;
+            buttonEfectivo.Location = new Point(1211, 369);
             buttonEfectivo.Name = "buttonEfectivo";
-            buttonEfectivo.Size = new Size(75, 23);
+            buttonEfectivo.Size = new Size(127, 45);
             buttonEfectivo.TabIndex = 5;
-            buttonEfectivo.Text = "Efectivo";
-            buttonEfectivo.UseVisualStyleBackColor = true;
+            buttonEfectivo.UseVisualStyleBackColor = false;
             buttonEfectivo.Click += buttonEfectivo_Click;
             // 
             // buttonTarjeta
             // 
-            buttonTarjeta.Location = new Point(613, 259);
+            buttonTarjeta.BackColor = Color.Transparent;
+            buttonTarjeta.Cursor = Cursors.Hand;
+            buttonTarjeta.FlatAppearance.BorderSize = 0;
+            buttonTarjeta.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonTarjeta.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonTarjeta.FlatStyle = FlatStyle.Flat;
+            buttonTarjeta.Location = new Point(1214, 318);
             buttonTarjeta.Name = "buttonTarjeta";
-            buttonTarjeta.Size = new Size(75, 23);
+            buttonTarjeta.Size = new Size(124, 45);
             buttonTarjeta.TabIndex = 6;
-            buttonTarjeta.Text = "Tarjeta";
-            buttonTarjeta.UseVisualStyleBackColor = true;
+            buttonTarjeta.UseVisualStyleBackColor = false;
             buttonTarjeta.Click += buttonTarjeta_Click;
             // 
             // buttonOxxo
             // 
-            buttonOxxo.Location = new Point(613, 302);
+            buttonOxxo.BackColor = Color.Transparent;
+            buttonOxxo.Cursor = Cursors.Hand;
+            buttonOxxo.FlatAppearance.BorderSize = 0;
+            buttonOxxo.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonOxxo.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonOxxo.FlatStyle = FlatStyle.Flat;
+            buttonOxxo.Location = new Point(1214, 420);
             buttonOxxo.Name = "buttonOxxo";
-            buttonOxxo.Size = new Size(75, 23);
+            buttonOxxo.Size = new Size(124, 45);
             buttonOxxo.TabIndex = 7;
-            buttonOxxo.Text = "oxxo";
-            buttonOxxo.UseVisualStyleBackColor = true;
+            buttonOxxo.UseVisualStyleBackColor = false;
             buttonOxxo.Click += buttonOxxo_Click;
             // 
             // FormTienda
@@ -151,7 +170,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.tienda;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1350, 729);
             Controls.Add(buttonOxxo);
             Controls.Add(buttonTarjeta);
             Controls.Add(buttonEfectivo);
@@ -163,7 +182,6 @@
             DoubleBuffered = true;
             Name = "FormTienda";
             StartPosition = FormStartPosition.CenterScreen;
-            WindowState = FormWindowState.Maximized;
             Load += FormTienda_Load;
             ResumeLayout(false);
             PerformLayout();

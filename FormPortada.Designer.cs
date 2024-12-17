@@ -71,9 +71,12 @@
             // labelFecha
             // 
             labelFecha.AutoSize = true;
-            labelFecha.Location = new Point(537, 327);
+            labelFecha.BackColor = Color.Transparent;
+            labelFecha.Font = new Font("Franklin Gothic Demi Cond", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelFecha.ForeColor = Color.FromArgb(79, 60, 42);
+            labelFecha.Location = new Point(533, 328);
             labelFecha.Name = "labelFecha";
-            labelFecha.Size = new Size(38, 15);
+            labelFecha.Size = new Size(47, 21);
             labelFecha.TabIndex = 2;
             labelFecha.Text = "Fecha";
             // 

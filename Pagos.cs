@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace ProyectoFinal
 {
@@ -42,8 +43,22 @@ namespace ProyectoFinal
         {
             labelFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = gorras;
+
+            // Limpiar las columnas y filas del DataGridView
+            dataGridView1.Columns.Clear();
+            dataGridView1.Rows.Clear();
+
+            // Agregar solo las columnas que necesitas
+            dataGridView1.Columns.Add("ID", "ID");
+            dataGridView1.Columns.Add("Nombre", "Nombre");
+            dataGridView1.Columns.Add("Precio", "Precio");
+
+
+            // Llenar las filas solo con los datos que quieres mostrar
+            foreach (var producto in gorras)
+            {
+                dataGridView1.Rows.Add(producto.Id, producto.Nombre, producto.Precio);
+            }
 
             labelPago.Text = "Pago: " + pago;
             labelTotproductos.Text = "Cantidad de productos: " + totProductos;
@@ -113,17 +128,23 @@ namespace ProyectoFinal
 
             this.Close();
 
+            // Cerrar el formulario Pagos y reabrir el formulario FormTienda con los datos actualizados
+            FormTienda abrirTienda = new FormTienda(comprador); // Pasamos los datos del usuario
+            FormTienda.DineroPagar = 0;
+            abrirTienda.cargarTienda();
+            abrirTienda.Show(); // Mostramos la tienda
+
         }
 
         //funcion para capturar la nota
 
-        Bitmap CapturarFormulario(Form formulario)
+        Bitmap CapturarFormulario(Form formulario, Rectangle region)
         {
             // Crear un bitmap con el tamaño del formulario
-            Bitmap captura = new Bitmap(formulario.Width, formulario.Height);
+            Bitmap captura = new Bitmap(region.Width, region.Height);
 
             // Dibujar el formulario en el bitmap
-            formulario.DrawToBitmap(captura, new Rectangle(0, 0, formulario.Width, formulario.Height));
+            formulario.DrawToBitmap(captura, region);
 
             return captura;
         }
@@ -131,36 +152,59 @@ namespace ProyectoFinal
         //se manda la captura de la nota a un pdf
         void ExportarFormularioAPDF(Form formulario, string rutaArchivo)
         {
-            // Capturar el formulario como imagen
-            Bitmap captura = CapturarFormulario(formulario);
+
+            // Asegurarse de que el formulario esté en primer plano
+            formulario.BringToFront();
+
+            // Actualizar el formulario para asegurarse de que se dibuje correctamente
+            formulario.Invalidate();
+            formulario.Update();
+
+            // Definir el rectángulo que representa el área del GroupBox
+            Rectangle areaDeCaptura = new Rectangle(
+                groupBox1.Location.X - formulario.AutoScrollPosition.X,  // Restar el desplazamiento horizontal
+                groupBox1.Location.Y - formulario.AutoScrollPosition.Y,  // Restar el desplazamiento vertical
+                groupBox1.Width,  // Ancho del GroupBox
+                groupBox1.Height  // Alto del GroupBox
+            );
+
+            // Crear un Bitmap con el tamaño del área de captura
+            Bitmap captura = new Bitmap(areaDeCaptura.Width, areaDeCaptura.Height);
+
+            // Capturar la parte del formulario correspondiente al GroupBox
+            using (Graphics g = Graphics.FromImage(captura))
+            {
+                g.CopyFromScreen(
+                    formulario.PointToScreen(areaDeCaptura.Location), // Ubicación del GroupBox en la pantalla
+                    new Point(0, 0),  // Dónde se dibujará la captura en el Bitmap
+                    areaDeCaptura.Size // Tamaño del área a capturar
+                );
+            }
 
             // Crear un nuevo documento PDF
             PdfDocument documento = new PdfDocument();
             PdfPage pagina = documento.AddPage();
 
-            // Configurar las dimensiones de la página PDF en base a la imagen capturada
-            pagina.Width = XUnit.FromPoint(captura.Width * 0.75); // 0.75 para ajustar la relación DPI (96 DPI a 72 DPI)
-            pagina.Height = XUnit.FromPoint(captura.Height * 0.75);
+            // Configurar el tamaño de la página del PDF según la imagen capturada
+            pagina.Width = XUnit.FromPoint(captura.Width * 0.75f);  // Escalar según el DPI
+            pagina.Height = XUnit.FromPoint(captura.Height * 0.75f);
 
             // Convertir la imagen Bitmap a un MemoryStream
             using (MemoryStream memoryStream = new MemoryStream())
             {
-                captura.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Png); // Guarda la imagen en formato PNG en el MemoryStream
+                captura.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Png); // Guardar como PNG
                 memoryStream.Position = 0; // Asegúrate de posicionarte al principio del stream
 
                 // Crear un objeto XImage desde el flujo de memoria
                 using (XGraphics gfx = XGraphics.FromPdfPage(pagina))
                 {
-                    XImage imagen = XImage.FromStream(memoryStream); // Usar FromStream en lugar de FromGdiPlusImage
-                    gfx.DrawImage(imagen, 0, 0, pagina.Width, pagina.Height); // Dibujar la imagen en la página PDF
+                    XImage imagen = XImage.FromStream(memoryStream); // Usar el stream para obtener la imagen
+                    gfx.DrawImage(imagen, 0, 0, pagina.Width, pagina.Height); // Dibujar la imagen en la página del PDF
                 }
             }
 
             // Guardar el archivo PDF
             documento.Save(rutaArchivo);
-
-            // Confirmación
-            MessageBox.Show("Archivo PDF generado exitosamente.", "Exportación Completa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void buttonPagar_Click_1(object sender, EventArgs e)
@@ -176,6 +220,7 @@ namespace ProyectoFinal
             {
                 double cambio;
                 cambio = recibido - pagoTot;
+                cambio = Math.Round(cambio);
                 MessageBox.Show("Tu cambio es: $" + cambio, "Gracias por su compra", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //cambios en bd
@@ -204,10 +249,16 @@ namespace ProyectoFinal
                     ExportarFormularioAPDF(this, saveFileDialog.FileName); // Exportar el formulario actual
                 }
 
-                //cambiar los datos en bd gorras
+
 
 
                 this.Close();
+
+                // Cerrar el formulario Pagos y reabrir el formulario FormTienda con los datos actualizados
+                FormTienda abrirTienda = new FormTienda(comprador); // Pasamos los datos del usuario
+                FormTienda.DineroPagar = 0;
+                abrirTienda.cargarTienda();
+                abrirTienda.Show(); // Mostramos la tienda
             }
         }
 
@@ -229,32 +280,30 @@ namespace ProyectoFinal
             else if (fechaValida != 5)
             {
                 MessageBox.Show("Introduce una fecha válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
             else if (cvvValido != 3)
             {
-                MessageBox.Show("Introduce un cvv válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                MessageBox.Show("Introduce un CVV válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 MessageBox.Show("Pago realizado.", "Gracias por su compra.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                //cambios en bd
+                // Cambios en BD (actualización de monto del usuario y existencias de productos)
                 ConexionBD modificar = new ConexionBD();
-
                 int agregado = (int)pagoTot;
+
                 // Actualizar el monto del comprador
-                modificar.actualizarMontoUsuario(comprador.Id, comprador.Monto + agregado); // Asumiendo que "comprador.Monto" es el saldo actual del usuario
+                modificar.actualizarMontoUsuario(comprador.Id, comprador.Monto + agregado);
 
                 // Actualizar existencias de los productos comprados
                 foreach (var gorra in gorras)
                 {
                     int nuevaExistencia = gorra.Existencias - 1; // Restamos 1 por cada gorra comprada
-                    modificar.actualizarProducto(gorra.Id, gorra.Nombre, nuevaExistencia, gorra.Descripcion, gorra.Precio, gorra.Imagen); // Actualizamos la base de datos con la nueva existencia
+                    modificar.actualizarProducto(gorra.Id, gorra.Nombre, nuevaExistencia, gorra.Descripcion, gorra.Precio, gorra.Imagen);
                 }
 
-                //se hace la nota
+                // Se genera el PDF
                 SaveFileDialog saveFileDialog = new SaveFileDialog
                 {
                     Filter = "Archivos PDF (*.pdf)|*.pdf",
@@ -263,12 +312,37 @@ namespace ProyectoFinal
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    ExportarFormularioAPDF(this, saveFileDialog.FileName); // Exportar el formulario actual
+                    ExportarFormularioAPDF(this, saveFileDialog.FileName); // Exportar el formulario actual como PDF
                 }
 
+                // Después de todo esto, cerramos el formulario actual y mostramos de nuevo la tienda
                 this.Close();
 
+                // Cerrar el formulario Pagos y reabrir el formulario FormTienda con los datos actualizados
+                FormTienda abrirTienda = new FormTienda(comprador); // Pasamos los datos del usuario
+                FormTienda.DineroPagar = 0;
+                abrirTienda.cargarTienda();
+                abrirTienda.Show(); // Mostramos la tienda
             }
+        }
+
+
+        private void textBoxNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSalir_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FormTienda abrirTienda = new FormTienda(comprador); // Pasamos los datos del usuario
+            abrirTienda.Show(); // Mostramos la tienda
         }
     }
 }

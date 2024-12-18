@@ -58,6 +58,10 @@
               "target": "Package",
               "version": "[6.1.1, )"
             },
+            "QRCoder": {
+              "target": "Package",
+              "version": "[1.6.0, )"
+            },
             "ScottPlot.WinForms": {
               "target": "Package",
               "version": "[5.0.47, )"

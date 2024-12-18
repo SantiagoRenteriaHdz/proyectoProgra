@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
+using QRCoder;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace ProyectoFinal
@@ -42,6 +43,10 @@ namespace ProyectoFinal
             //se muestra lo necesario segun el tipo de pago
             tipodePago(tipoPago);
 
+            if (tipoPago == 2)
+            {
+                GenerarCodigoQR("Cantidad a pagar: " + pagoTot.ToString("F2") + "\nPase a pagar a su Oxxo mas cercano");
+            }
 
         }
 
@@ -149,18 +154,7 @@ namespace ProyectoFinal
 
         }
 
-        //funcion para capturar la nota
-        //recibe el formulario actual y la region que quieres que se capture del form
-        Bitmap CapturarFormulario(Form formulario, Rectangle region)
-        {
-            // Crear un bitmap con el tamaño del formulario
-            Bitmap captura = new Bitmap(region.Width, region.Height);
-
-            // Dibujar el formulario en el bitmap
-            formulario.DrawToBitmap(captura, region);
-
-            return captura;
-        }
+       
 
         //se manda la captura de la nota a un pdf
         void ExportarFormularioAPDF(Form formulario, string rutaArchivo)
@@ -200,14 +194,14 @@ namespace ProyectoFinal
             PdfPage pagina = documento.AddPage();
 
             // Configurar el tamaño de la página del PDF según la imagen capturada
-            pagina.Width = XUnit.FromPoint(captura.Width * 0.75f);  
+            pagina.Width = XUnit.FromPoint(captura.Width * 0.75f);
             pagina.Height = XUnit.FromPoint(captura.Height * 0.75f);
 
             // Convertir la imagen Bitmap a un MemoryStream para poder maniobrar con la imagen de la nota
             using (MemoryStream memoryStream = new MemoryStream())
             {
                 captura.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Png); // Guardar como PNG
-                memoryStream.Position = 0; // Asegúrate de posicionarte al principio del stream
+                memoryStream.Position = 0; 
 
                 // Crear un objeto XImage desde el flujo de memoria
                 using (XGraphics gfx = XGraphics.FromPdfPage(pagina))
@@ -252,7 +246,7 @@ namespace ProyectoFinal
                 int agregado = (int)pagoTot;
 
                 // Actualizar el monto del comprador
-                modificar.actualizarMontoUsuario(comprador.Id, comprador.Monto + agregado); 
+                modificar.actualizarMontoUsuario(comprador.Id, comprador.Monto + agregado);
 
                 // Actualizar existencias de los productos comprados
                 foreach (var gorra in gorras)
@@ -347,7 +341,7 @@ namespace ProyectoFinal
 
                 // Se cierra el form y se muestra el de la tienda
                 this.Close();
-               
+
                 FormTienda abrirTienda = new FormTienda(comprador); // Pasamos los datos del usuario
                 FormTienda.DineroPagar = 0;
                 abrirTienda.cargarTienda();
@@ -355,6 +349,21 @@ namespace ProyectoFinal
             }
         }
 
+        private void GenerarCodigoQR(string textoQR)
+        {
+            // Crear el generador de código QR
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+
+            // Crear el objeto QRCode con los datos generados
+            QRCode qrCode = new QRCode(qrGenerator.CreateQrCode(textoQR, QRCodeGenerator.ECCLevel.Q));
+
+            // Convertir el código QR a una imagen Bitmap
+            Bitmap qrCodeImage = qrCode.GetGraphic(10); 
+
+            // Asignar la imagen generada al PictureBox
+         
+            pictureBoxQR.Image = qrCodeImage;
+        }
 
         private void textBoxNombre_TextChanged(object sender, EventArgs e)
         {
@@ -363,7 +372,7 @@ namespace ProyectoFinal
 
         private void buttonSalir_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -373,6 +382,11 @@ namespace ProyectoFinal
             this.Close();
             FormTienda abrirTienda = new FormTienda(comprador); // Pasamos los datos del usuario
             abrirTienda.Show(); // Mostramos la tienda
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -157,11 +157,11 @@
             // pictureBoxQR
             // 
             pictureBoxQR.BackColor = Color.Transparent;
-            pictureBoxQR.BackgroundImage = Properties.Resources.oxxo;
             pictureBoxQR.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxQR.Location = new Point(19, 28);
             pictureBoxQR.Name = "pictureBoxQR";
             pictureBoxQR.Size = new Size(178, 145);
+            pictureBoxQR.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxQR.TabIndex = 0;
             pictureBoxQR.TabStop = false;
             pictureBoxQR.Click += pictureBoxQR_Click;
@@ -196,9 +196,9 @@
             // labelFecha
             // 
             labelFecha.BackColor = Color.Transparent;
-            labelFecha.Font = new Font("Franklin Gothic Demi Cond", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelFecha.Font = new Font("Franklin Gothic Medium Cond", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelFecha.ForeColor = Color.FromArgb(210, 197, 183);
-            labelFecha.Location = new Point(684, 19);
+            labelFecha.Location = new Point(672, 17);
             labelFecha.Name = "labelFecha";
             labelFecha.Size = new Size(173, 23);
             labelFecha.TabIndex = 2;
@@ -265,6 +265,7 @@
             groupBox1.Size = new Size(897, 375);
             groupBox1.TabIndex = 11;
             groupBox1.TabStop = false;
+            groupBox1.Enter += groupBox1_Enter;
             // 
             // button1
             // 
